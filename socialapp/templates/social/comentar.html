@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Comentar Postagem</title>
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h2>Comentar Post</h2>
+
+    <div class="post-info">
+        <p><strong>{{ postagem.nome_usuario }}</strong> postou:</p>
+        <p>{{ postagem.conteudo }}</p>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Comentário</button>
+    </form>
+
+    <a href="{% url 'index' %}" class="back-link">← Voltar ao Feed</a>
+</div>
+
+</body>
+</html>
