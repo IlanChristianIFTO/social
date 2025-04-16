@@ -8,25 +8,40 @@
 </head>
 <body class="bg-light">
 
-    <div class="container mt-4">
-        <h1 class="mb-4 text-center">Nova Postagem</h1>
-
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="mb-3">
-                {{ form.nome_usuario.label_tag }} {{ form.nome_usuario }}
-            </div>
-            <div class="mb-3">
-                {{ form.titulo.label_tag }} {{ form.titulo }}
-            </div>
-            <div class="mb-3">
-                {{ form.conteudo.label_tag }} {{ form.conteudo }}
-            </div>
-
-            <button type="submit" class="btn btn-primary">Publicar</button>
-        </form>
-
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">Comunidade Estudantil</a>
     </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Nova Postagem</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.nome_usuario.label_tag }}
+            {{ form.nome_usuario }}
+        </div>
+        <div class="mb-3">
+            {{ form.titulo.label_tag }}
+            {{ form.titulo }}
+        </div>
+        <div class="mb-3">
+            {{ form.conteudo.label_tag }}
+            {{ form.conteudo }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Publicar</button>
+        <a href="{% url 'index' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-white">© 2024 Comunidade Estudantil - Todos os direitos reservados</span>
+    </div>
+</footer>
 
 </body>
 </html>

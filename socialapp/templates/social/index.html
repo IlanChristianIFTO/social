@@ -6,50 +6,47 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body>
 
-<div class="container mt-4">
-    <h1 class="mb-4 text-center">Bem-vindo à Comunidade Estudantil!</h1>
+<div class="container feed-container">
+    <h1 class="text-center titulo-principal">Bem-vindo à Comunidade Estudantil!</h1>
 
     {% for postagem in postagens %}
-        <div class="card mb-4 shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">{{ postagem.titulo }}</h5>
-                <h6 class="card-subtitle text-muted mb-2">
-                    Postado por {{ postagem.nome_usuario }} em {{ postagem.data_postagem|date:"d/m/Y - H:i" }}
-                </h6>
-                <p class="card-text">{{ postagem.conteudo }}</p>
+        <div class="postagem-card">
+            <h5 class="titulo-postagem">{{ postagem.titulo }}</h5>
+            <h6 class="info-postagem">
+                Postado por <span>{{ postagem.nome_usuario }}</span> em {{ postagem.data_postagem|date:"d/m/Y - H:i" }}
+            </h6>
+            <p class="conteudo-postagem">{{ postagem.conteudo }}</p>
 
-                <div class="d-flex gap-2 align-items-center">
-                    <a href="{% url 'curtir_postagem' postagem.id %}" class="btn btn-outline-primary btn-sm">
-                        👍 Curtir ({{ postagem.curtidas }})
-                    </a>
-                    <a href="{% url 'descurtir_postagem' postagem.id %}" class="btn btn-outline-danger btn-sm">
-                        👎 Descurtir ({{ postagem.descurtidas }})
-                    </a>
-                    <button class="btn btn-outline-secondary btn-sm">🔗 Compartilhar</button>
-                </div>
+            <div class="botoes-interacao">
+                <a href="{% url 'curtir_postagem' postagem.id %}" class="btn btn-curtir">
+                    👍 Curtir ({{ postagem.curtidas }})
+                </a>
+                <a href="{% url 'descurtir_postagem' postagem.id %}" class="btn btn-descurtir">
+                    👎 Descurtir ({{ postagem.descurtidas }})
+                </a>
+                <button class="btn btn-compartilhar">🔗 Compartilhar</button>
+            </div>
 
-                <div class="mt-3">
-                    <h6>Comentários:</h6>
-                    {% for comentario in postagem.comentarios.all %}
-                        <div class="comment">
-                            <strong>{{ comentario.nome_usuario }}</strong>: {{ comentario.conteudo }}
-                        </div>
-                    {% empty %}
-                        <p>Nenhum comentário ainda.</p>
-                    {% endfor %}
-
-                    <a href="{% url 'comentar' postagem.id %}" class="btn btn-info btn-sm mt-2">Comentar</a>
-                </div>
+            <div class="comentarios">
+                <h6>Comentários:</h6>
+                {% for comentario in postagem.comentarios.all %}
+                    <div class="comentario">
+                        <strong>{{ comentario.nome_usuario }}</strong>: {{ comentario.conteudo }}
+                    </div>
+                {% empty %}
+                    <p class="sem-comentario">Nenhum comentário ainda.</p>
+                {% endfor %}
+                <a href="{% url 'comentar' postagem.id %}" class="btn btn-comentar">Comentar</a>
             </div>
         </div>
     {% empty %}
-        <p class="text-center">Nenhuma postagem ainda. <a href="#nova_postagem">Crie a primeira!</a></p>
+        <p class="text-center mensagem-vazia">Nenhuma postagem ainda. <a href="#nova_postagem">Crie a primeira!</a></p>
     {% endfor %}
 
     <div class="text-center mt-4">
-        <a href="{% url 'nova_postagem' %}" class="btn btn-success">Nova Postagem</a>
+        <a href="{% url 'nova_postagem' %}" class="btn btn-nova-postagem">Nova Postagem</a>
     </div>
 </div>
 
