@@ -3,13 +3,13 @@ from .models import Postagem
 from .forms import PostagemForm, ComentarioForm
 
 
-# Função de index - exibe as postagens
+# Função de index - Exibir as postagens
 def index(request):
     postagem = Postagem.objects.order_by('-data_postagem')
     return render(request, 'social/index.html', {'postagens': postagem})
 
 
-# Função para criar nova postagem
+# Criar nova postagem
 def nova_postagem(request):
     if request.method == 'POST':
         form = PostagemForm(request.POST)
