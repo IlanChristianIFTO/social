@@ -1,131 +1,148 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonte padrão */
 body {
-    background-color: #f0f2f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.feed-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 15px;
-}
-
-.titulo-principal {
-    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
     color: #333;
-    margin-bottom: 40px;
 }
 
-.postagem-card {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 25px 30px;
-    margin-bottom: 30px;
-}
-
-.titulo-postagem {
-    font-size: 1.4rem;
-    color: #2c3e50;
-    margin-bottom: 5px;
-}
-
-.info-postagem {
-    font-size: 0.9rem;
-    color: #777;
-    margin-bottom: 15px;
-}
-
-.conteudo-postagem {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 20px;
-}
-
-.botoes-interacao {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn-curtir {
-    background-color: #e8f0fe;
-    color: #1a73e8;
-    border: 1px solid #c6dafc;
-}
-
-.btn-curtir:hover {
-    background-color: #d2e3fc;
-}
-
-.btn-descurtir {
-    background-color: #fdecea;
-    color: #d93025;
-    border: 1px solid #f9c8c3;
-}
-
-.btn-descurtir:hover {
-    background-color: #f8d7da;
-}
-
-.btn-compartilhar {
-    background-color: #f0f0f0;
-    color: #444;
-    border: 1px solid #ddd;
-}
-
-.btn-compartilhar:hover {
-    background-color: #e2e2e2;
-}
-
-.comentarios h6 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-.comentario {
-    padding: 8px 10px;
-    background: #f9f9f9;
-    border-left: 4px solid #007bff;
-    margin-bottom: 8px;
-    border-radius: 6px;
-}
-
-.sem-comentario {
-    color: #999;
-    font-style: italic;
-}
-
-.btn-comentar {
-    margin-top: 10px;
-    background-color: #17a2b8;
+/* Navbar */
+.navbar {
+    background-color: #006400; /* Verde escuro */
+    padding: 10px 20px;
     color: white;
-    padding: 6px 14px;
-    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: white;
     text-decoration: none;
 }
 
-.btn-comentar:hover {
-    background-color: #138496;
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: white;
 }
 
-.btn-nova-postagem {
-    background-color: #28a745;    color: white;
-    padding: 10px 22px;
-    font-size: 1rem;
-    border-radius: 8px;
+.navbar-menu {
+    display: flex;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: white;
     text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
-.btn-nova-postagem:hover {
-    background-color: #218838;
+.nav-link i {
+    margin-right: 8px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Ativar o menu na versão mobile */
+.navbar-menu.active {
+    display: block;
+}
+
+.navbar-toggler i {
+    font-size: 20px;
+}
+
+/* Postagens */
+.container {
+    margin-top: 40px;
+}
+
+.post-preview {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.post-subtitle {
+    font-size: 14px;
+    color: #777;
+}
+
+.post-actions .btn {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+.btn-action {
+    margin-right: 10px;
+    border: 1px solid #28a745;
+    background-color: transparent;
+    color: #28a745;
+}
+
+.btn-action:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.like {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.like:hover {
+    background-color: #007bff;
+}
+
+.dislike {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.dislike:hover {
+    background-color: #dc3545;
+}
+
+.share {
+    border-color: #17a2b8;
+    color: #17a2b8;
+}
+
+.share:hover {
+    background-color: #17a2b8;
+}
+
+/* Footer */
+.footer {
+    background-color: #006400; /* Verde escuro */
+    padding: 20px;
+    color: white;
 }
